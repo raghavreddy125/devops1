@@ -7,8 +7,7 @@ pool:
 steps:
 - task: Maven@3
   inputs:
-    mavenPomFile: 'Javateam/pom.xml'
-    mavenOptions: '-Xmx3072m'
+    mavenPomFile: 'javateam/pom.xml'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
