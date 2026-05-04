@@ -2,8 +2,15 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, Azure Pipeline!
-  displayName: 'Run a one-line script'
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'javateam/pom.xml'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
